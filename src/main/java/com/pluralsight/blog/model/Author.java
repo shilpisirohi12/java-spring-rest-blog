@@ -18,7 +18,9 @@ public class Author {
     private Long id;
     private String firstname;
     private String lastname;
+    @JsonIgnore
     private String username;
+    @JsonIgnore
     private String password;
     @OneToMany
     private List<Post> posts;
@@ -63,11 +65,11 @@ public class Author {
     public String getUsername() {
         return username;
     }
-    @JsonIgnore
+
     public void setUsername(String username) {
         this.username = username;
     }
-    @JsonIgnore
+
     public String getPassword() {
         return password;
     }
