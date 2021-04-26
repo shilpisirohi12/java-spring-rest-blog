@@ -20,9 +20,12 @@ public class Author {
     private String lastname;
     private String username;
     private String password;
+    @OneToMany
+    private List<Post> posts;
 
     public Author() {
         super();
+        posts=new ArrayList<>();
     }
 
     public Author(String username, String firstname, String lastname, String password) {
@@ -60,14 +63,15 @@ public class Author {
     public String getUsername() {
         return username;
     }
-
+    @JsonIgnore
     public void setUsername(String username) {
         this.username = username;
     }
-
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -85,10 +89,10 @@ public class Author {
     }
 
     public List<Post> getPosts() {
-        return null;
+        return posts;
     }
 
     public void addPost(Post post) {
-        return;
+        posts.add(post);
     }
 }
